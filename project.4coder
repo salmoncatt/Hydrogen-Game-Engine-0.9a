@@ -1,0 +1,101 @@
+version(1);
+
+project_name = "Hydrogen Game Engine";
+
+patterns = {
+	"*.c",
+	"*.cpp",
+	"*.ds",
+	"*.h",
+	"*.bat",
+	"*.sh",
+	"*.glsl",
+	"*.4coder",
+};
+
+blacklist_patterns = {
+	".*",
+};
+
+load_paths = {
+	{
+		{ {"."}, .recursive = true, .relative = true }, .os = "win"
+	},
+	{
+		{ {"..\..\..\msys64\mingw64\x86_64-w64-mingw32\include"}, .recursive = true, .relative = true }, .os = "win"
+	},
+
+	{
+		{ {"."}, .recursive = true, .relative = true }, .os = "linux"
+	},
+};
+
+command_list = {
+	{
+		.name = "build",
+		.out = "*compilation*",
+		.footer_panel = true,
+		.save_dirty_files = true,
+		.cursor_at_end = false,
+		.cmd = {
+			{ "build.bat", .os = "win" },
+			{ "sh build.sh", .os = "linux" },
+		},
+	},
+	
+	{
+		.name = "build_debug",
+		.out = "*compilation*",
+		.footer_panel = true,
+		.save_dirty_files = true,
+		.cursor_at_end = false,
+		.cmd = {
+			{ "build_debug.bat", .os = "win" },
+			{ "sh build_debug.sh", .os = "linux" },
+		},
+	},
+	
+	{
+		.name = "run",
+		.out = "*compilation*",
+		.footer_panel = true,
+		.save_dirty_files = true,
+		.cursor_at_end = false,
+		.cmd = {
+			{ "run.bat", .os = "win" },
+			{ "sh run.sh", .os = "linux" },
+		},
+	},
+
+	{
+		.name = "run_debug",
+		.out = "*compilation*",
+		.footer_panel = true,
+		.save_dirty_files = true,
+		.cursor_at_end = false,
+		.cmd = {
+			{ "run_debug.bat", .os = "win" },
+			{ "sh run_debug.linux", .os = "linux" },
+		},
+	},
+
+	{
+		.name = "clean",
+		.out = "*compilation*",
+		.footer_panel = true,
+		.save_dirty_files = true,
+		.cursor_at_end = false,
+		.cmd = {
+			{ "clean.bat", .os = "win" },
+			{ "sh clean.sh", .os = "linux" },
+		},
+	},
+};
+
+fkey_command[1] = "build";
+fkey_command[5] = "build_debug";
+
+fkey_command[3] = "run";
+fkey_command[4] = "run_debug";
+
+fkey_command[2] = "clean";

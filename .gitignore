@@ -1,0 +1,6 @@
+#folders
+bin/
+
+#files
+push to git.bat
+*.h.gch
