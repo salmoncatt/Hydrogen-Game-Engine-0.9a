@@ -7,11 +7,22 @@
 
 // NOTE(salmoncatt): this gets removed or left depending on how you compile in the makefile
 #define HF_DEBUG
+#define hf_malloc malloc
+#define hf_free free
+#define hf_memcpy memcpy
+#define hf_err printf
+#define hf_strlen strlen
+
+
+
+
+#include "datatypes/hfdatatypes.h"
 
 
 
 #include <GL/gl.h>
 
+#include <GLFW/glfw3.h>
 
 
 #ifdef _WIN32
