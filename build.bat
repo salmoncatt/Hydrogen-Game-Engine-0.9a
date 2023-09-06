@@ -11,6 +11,14 @@ echo[
 
 )
 
+if not exist bin\glfw3.dll (
+
+echo [HGE] copying glfw3.dll to bin
+copy "ext\lib\glfw3.dll" "bin\glfw3.dll"
+echo[
+
+)
+
 
 set compileType=gcc
 

@@ -6,6 +6,7 @@ void hf_window_create(hf_window* w){
     
     if(!w->window){
         hf_err("[HF WINDOW] failed to create glfw window for window: [%s]", w->title);
+        return;
     }
     
     glfwMakeContextCurrent(w->window);

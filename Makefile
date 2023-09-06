@@ -1,5 +1,5 @@
 CC=gcc
-LIBS  = -lglfw3 -lopengl32 -lgdi32 -luser32 -lkernel32 -lfreetype -lpthread
+LIBS  = -lglfw3dll -lopengl32 -lgdi32 -luser32 -lkernel32 -lfreetype -limagehlp
 CFLAGS = -mavx -m64 -Isrc/HF -Iext/include -Iext/include/FreeType -Lext/lib
 #TODO: (salmoncatt) dont make me write * for every new sub directory added
 #SRC=$(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c)
@@ -19,7 +19,7 @@ HF_RES = bin/hf_res.res
 
 
 main: $(SRC)
-	 $(CC) -include $(PCH_SRC) -o bin\goober $^ $(CFLAGS) $(LIBS) -limagehlp $(HF_RES)
+	 $(CC) -include $(PCH_SRC) -o bin\goober $^ $(CFLAGS) $(LIBS) $(HF_RES)
 
 
 
