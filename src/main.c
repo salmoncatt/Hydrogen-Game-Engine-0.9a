@@ -3,17 +3,17 @@
 
 
 int main(){
+    hf_app app = hf_app_defaults();
+    app.parameters = HF_APP_VERBOSE | HF_APP_CREATE_WINDOW | HF_APP_USE_OPENGL;
     
-    hf_window test;
-    test.w = 300;
-    test.h = 300;
-    test.x = 300;
-    test.y = 300;
-    test.title = "poopy haha";
+    hf_app_start(&app);
     
-    hf_window_create(&test);
+    while(hf_app_should_update(&app)){
+        
+    }
     
-    printf("test\n");
     
-    return 1;
+    //printf("test\n");
+    
+    return hf_app_stop(&app);
 }

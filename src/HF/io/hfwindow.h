@@ -17,5 +17,10 @@ typedef struct hf_window{
 
 void hf_window_create(hf_window* window);
 
+hf_window hf_window_defaults();
+
+b8 hf_should_window_update(hf_window* window);
+
+void hf_window_destroy(hf_window* window);
 
 #endif //HFWINDOW_H

@@ -32,8 +32,8 @@
 /* 
 #include "math/hfmath.h"
 
-#include "debug/hfdebug.h"
  */
+#include "debug/hfdebug.h"
 
 
 #include "io/hfwindow.h"
