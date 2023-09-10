@@ -34,6 +34,6 @@ b8 hf_should_window_update(hf_window* w){
     glfwSwapBuffers(w->window);
     glfwPollEvents();
     
-    return glfwWindowShouldClose(w->window);
+    return !glfwWindowShouldClose(w->window);
 }
 
