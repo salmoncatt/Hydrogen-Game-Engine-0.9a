@@ -11,12 +11,14 @@
 #define hf_free free
 #define hf_memcpy memcpy
 #define hf_err printf
+#define hf_log printf
 #define hf_strlen strlen
 
 
 
 
 #include "datatypes/hfdatatypes.h"
+#include "datatypes/hfarray.h"
 
 
 
@@ -48,6 +50,8 @@
 
 
 #include "graphics/stb_image.h"
+
+#include "opengl/hfgl.h"
 
 
 #include "ft2build.h"

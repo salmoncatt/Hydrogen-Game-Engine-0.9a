@@ -53,6 +53,11 @@ void hf_app_start(hf_app* app){
             hf_window_create(&app->window);
         }
         
+        if(app->parameters & HF_APP_USE_OPENGL){
+            hf_gl_init();
+        }
+        
+        
         /* 
                 if(app->parameters & HF_APP_USE_ECS){
                     hf_ecs_init(&app->ecs);
@@ -112,7 +117,6 @@ b8 hf_app_should_update(hf_app* app){
 }
 
 i32 hf_app_stop(hf_app* app){
-    glfwTerminate();
     /* 
         hf_log("[HF APP] closing app: [%s]\n", app->name);
         
@@ -130,6 +134,18 @@ i32 hf_app_stop(hf_app* app){
             hf_free_type_close();
         }
          */
+    if(app->parameters & HF_APP_CREATE_WINDOW){
+        //hf_destroy_window(&app->window);
+        glfwTerminate();
+    }
+    
+    if(app->parameters & HF_APP_USE_OPENGL){
+        //hf_renderer_destroy(app);
+        //hf_renderer_destroy_2d(app); 
+        hf_gl_close();
+        //hf_free_type_close();
+    }
+    
     printf("[HF APP] closed app [%s]\n", app->name);
     
     return 1;

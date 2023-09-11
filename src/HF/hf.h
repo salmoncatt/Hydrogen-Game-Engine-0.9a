@@ -16,9 +16,9 @@
 //#include "ecs/hfcomponents.h"
 
 #include "datatypes/hfdatatypes.h"
+#include "datatypes/hfarray.h"
 /* 
 #include "datatypes/hfvector.h"
-#include "datatypes/hfarray.h"
 #include "datatypes/hflinkedlist.h"
 #include "datatypes/hfstring.h"
 #include "datatypes/hffloatbuffer.h"
@@ -26,8 +26,8 @@
 
 /* 
 #include "util/hfutil.h"
-#include "opengl/hfgl.h"
  */
+#include "opengl/hfgl.h"
 
 /* 
 #include "math/hfmath.h"

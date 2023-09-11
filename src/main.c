@@ -8,8 +8,11 @@ int main(){
     
     hf_app_start(&app);
     
+    glClearColor(1, 0.6f, 0, 1);
+    
     while(hf_app_should_update(&app)){
         
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
     
     
