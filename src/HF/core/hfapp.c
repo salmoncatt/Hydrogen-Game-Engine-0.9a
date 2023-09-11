@@ -45,7 +45,7 @@ void hf_app_start(hf_app* app){
                 printf("[HF APP] initialized GLFW\n");
             }
             
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
             glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
             
             
