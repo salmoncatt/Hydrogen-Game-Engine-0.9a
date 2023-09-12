@@ -5,7 +5,7 @@
 
 //#include "../datatypes/hfvector.h"
 
-#include "hftexture.h"
+#include "../graphics/hftexture.h"
 #include "../datatypes/hfarray.h"
 
 typedef struct hf_mesh{

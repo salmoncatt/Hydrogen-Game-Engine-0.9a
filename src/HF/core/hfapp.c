@@ -46,9 +46,9 @@ void hf_app_start(hf_app* app){
                 printf("[HF APP] initialized GLFW\n");
             }
             
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-            
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+            glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
             
             app->window = hf_window_defaults();
             hf_window_create(&app->window);

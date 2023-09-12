@@ -1,5 +1,5 @@
 #include "hfgl.h"
-#include "../mesh/hftexture.h"
+#include "../graphics/hftexture.h"
 
 b8 hf_gl_created = 0;
 u32* hf_gl_vbos;

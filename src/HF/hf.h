@@ -55,9 +55,9 @@
 
 #include "graphics/stb_image.h"
 #include "graphics/hfimage.h"
+#include "graphics/hftexture.h"
 
 #include "mesh/hfmesh.h"
-#include "mesh/hftexture.h"
 
 #include "rendering/hfrenderer.h"
 #include "rendering/hfshader.h"
