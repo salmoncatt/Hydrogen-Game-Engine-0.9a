@@ -48,10 +48,16 @@
 
 #endif
 
+#include "datatypes/hfarray.h"
+#include "datatypes/hffloatbuffer.h"
+#include "datatypes/hfstring.h"
 
 #include "graphics/stb_image.h"
+#include "util/hfutil.h"
 
 #include "opengl/hfgl.h"
+
+#include "math/hfmath.h"
 
 
 #include "ft2build.h"

@@ -1,5 +1,6 @@
 #include "hfapp.h"
 #include "../debug/hfdebug.h"
+#include "../rendering/hfrenderer.h"
 
 hf_app* hf_global_app = NULL;
 
@@ -55,6 +56,7 @@ void hf_app_start(hf_app* app){
         
         if(app->parameters & HF_APP_USE_OPENGL){
             hf_gl_init();
+            hf_renderer_init(app);
         }
         
         
@@ -101,13 +103,13 @@ void hf_app_start(hf_app* app){
 }
 
 void hf_app_update(hf_app* app){
-    /* 
-        if(app->parameters & HF_APP_USE_OPENGL){
-            hf_renderer_update(app);
-        }
-        hf_time_update();
-        hf_input_update(app);
-     */
+    
+    if(app->parameters & HF_APP_USE_OPENGL){
+        hf_renderer_update(app);
+    }
+    //hf_time_update();
+    //hf_input_update(app);
+    
 }
 
 b8 hf_app_should_update(hf_app* app){
@@ -140,7 +142,7 @@ i32 hf_app_stop(hf_app* app){
     }
     
     if(app->parameters & HF_APP_USE_OPENGL){
-        //hf_renderer_destroy(app);
+        hf_renderer_destroy(app);
         //hf_renderer_destroy_2d(app); 
         hf_gl_close();
         //hf_free_type_close();
