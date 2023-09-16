@@ -12,6 +12,7 @@ hf_app hf_app_defaults(){
     //app.parameters = HF_APP_CREATE_WINDOW | HF_APP_USE_OPENGL;
     // NOTE(salmoncatt): smooths fps readings and reduces chatter
     app.fps_smoothing = 0.05f;
+    app.window = hf_window_defaults();
     
     return app;
 }
@@ -50,8 +51,10 @@ void hf_app_start(hf_app* app){
             glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
             glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
             
-            app->window = hf_window_defaults();
             hf_window_create(&app->window);
+            
+            hf_time_init();
+            hf_input_start(app);
         }
         
         if(app->parameters & HF_APP_USE_OPENGL){
@@ -103,12 +106,11 @@ void hf_app_start(hf_app* app){
 }
 
 void hf_app_update(hf_app* app){
-    
     if(app->parameters & HF_APP_USE_OPENGL){
         hf_renderer_update(app);
     }
     //hf_time_update();
-    //hf_input_update(app);
+    hf_input_update(app);
     
 }
 

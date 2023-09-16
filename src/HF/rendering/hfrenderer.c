@@ -1,7 +1,5 @@
 #include "hfrenderer.h"
 
-//hf_debug_camera hf_renderer_cam = { .sensitivity = 0.05f, .movement_speed = 10};
-
 m4f hf_renderer_proj_mat = {};
 m4f hf_renderer_ortho;
 m4f hf_renderer_pixel_ortho;
@@ -12,6 +10,8 @@ u32 hf_window_w;
 u32 hf_window_h;
 
 hf_shader hf_default_shader = {};;
+
+hf_camera hf_renderer_camera = {};
 
 void hf_renderer_init(hf_app* app) {
     hf_log("[HF] initializing HF Renderer...\n");
@@ -92,9 +92,9 @@ void hf_render_mesh(hf_mesh* mesh, hf_shader* shader, hf_transform* transform){
     }
     
     m4f transformation = hf_transformation_m4f(transform->pos, transform->rot, transform->scale);
-    //m4f view = hf_view_m4f(hf_renderer_cam.transform.pos, hf_renderer_cam.transform.rot);
+    m4f view = hf_view_m4f(hf_renderer_camera.pos, hf_renderer_camera.rot);
     hf_shader_set_uniform_m4f(shader, "transform", &transformation);
-    //hf_shader_set_uniform_m4f(shader, "view", &view);
+    hf_shader_set_uniform_m4f(shader, "view", &view);
     hf_shader_set_uniform_m4f(shader, "projection", &hf_renderer_proj_mat);
     //position
     

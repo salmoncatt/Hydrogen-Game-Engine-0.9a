@@ -28,6 +28,7 @@
 
 
 #include "io/hfwindow.h"
+#include "io/hfinput.h"
 
 
 /* 
@@ -50,8 +51,8 @@
 //#endif
 
 #include "time/hfprofiler.h"
-#include "time/hftime.h"
  */
+#include "time/hftime.h"
 
 #include "graphics/stb_image.h"
 #include "graphics/hfimage.h"
@@ -70,5 +71,8 @@
 #include "text/hffreetype.h"
 #include "text/hf_font.h"
  */
+
+#include "camera/hfcamera.h"
+#include "camera/hfcameracontroller.h"
 
 #endif //HF_H

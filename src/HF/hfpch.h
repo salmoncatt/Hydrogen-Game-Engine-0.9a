@@ -28,7 +28,7 @@
 
 
 #ifdef _WIN32
-#include <windows.h>
+#include <Windows.h>
 //for cpuid
 #include <intrin.h>
 
@@ -59,6 +59,9 @@
 
 #include "math/hfmath.h"
 
+#include "io/hfinput.h"
+
+#include "time/hftime.h"
 
 #include "ft2build.h"
 #include "freetype/freetype.h"

@@ -5,8 +5,9 @@
 int main(){
     hf_app app = hf_app_defaults();
     app.parameters = HF_APP_VERBOSE | HF_APP_CREATE_WINDOW | HF_APP_USE_OPENGL;
-    
+    app.window.title = "Goober: []";
     hf_app_start(&app);
+    f32 last_title_update = hf_get_time();
     
     glClearColor(1, 0.6f, 0, 1);
     
@@ -24,12 +25,39 @@ int main(){
     hf_transform transform = {pos, rot, scale};
     
     
-    while(hf_app_should_update(&app)){
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    hf_camera_controller cam_controller = { .sensitivity = 0.05f, .movement_speed = 10};
+    
+    
+    
+    
+    while(hf_app_should_update(&app) && !hf_input_get_key_down(HF_KEY_ESCAPE)){
+        //update camera controller and renderer camera before rendering
+        hf_camera_controller_update(&cam_controller);
+        hf_renderer_camera = cam_controller.camera;
+        
+        
+        
+        
+        if(hf_input_get_mouse_button_down(HF_MOUSE_BUTTON_RIGHT)){
+            hf_input_toggle_cursor();
+        }
+        
+        
+        
         hf_render_mesh(&mesh, &hf_default_shader, &transform);
         
         
         
+        
+        
+        
+        //update title every half second
+        if((hf_get_time() - last_title_update) > 10){
+            char window_title[128];
+            sprintf(window_title, "Goober: [%.1f] [%.1f]", hf_get_fps(), cam_controller.camera.pos.y);
+            hf_window_set_title(&app.window, window_title);
+            last_title_update = hf_get_time();
+        }
         
     }
     

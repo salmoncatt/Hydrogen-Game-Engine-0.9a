@@ -16,8 +16,8 @@ void main(void){
 
 	pass_texture_coords = texture_coords;
 	colour = vec3(position.x+0.5,0.0,position.y+0.5);
-	//gl_Position = projection * view * transform * vec4(position, 1.0);
-	gl_Position = projection * transform * vec4(position, 1.0);
+	gl_Position = projection * view * transform * vec4(position, 1.0);
+	//gl_Position = projection * transform * vec4(position, 1.0);
 	//gl_Position = vec4(position, 1.0);
 
 	surface_normal = normal;

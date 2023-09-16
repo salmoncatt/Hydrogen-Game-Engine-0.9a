@@ -1,5 +1,5 @@
 CC=gcc
-LIBS  = -lglfw3dll -lopengl32 -lgdi32 -luser32 -lkernel32 -lfreetype -limagehlp
+LIBS  = -lglfw3dll -lopengl32 -lgdi32 -luser32 -lkernel32 -lfreetype -limagehlp -lwinmm
 CFLAGS = -mavx -m64 -Isrc/HF -Iext/include -Iext/include/FreeType -Lext/lib
 #TODO: (salmoncatt) dont make me write * for every new sub directory added
 #SRC=$(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c)

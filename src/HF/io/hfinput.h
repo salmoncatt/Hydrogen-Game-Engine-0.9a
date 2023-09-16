@@ -10,8 +10,8 @@
 
 
 #define HF_MOUSE_BUTTON_0 0
-#define HF_MOUSE_BUTTON_1 2
-#define HF_MOUSE_BUTTON_2 1
+#define HF_MOUSE_BUTTON_1 1
+#define HF_MOUSE_BUTTON_2 2
 #define HF_MOUSE_BUTTON_3 3
 #define HF_MOUSE_BUTTON_4 4
 #define HF_MOUSE_BUTTON_5 5
@@ -163,13 +163,27 @@ extern b8 hf_input_buttons_old[HF_MOUSE_BUTTON_LAST];
 
 extern b8 hf_input_cursor_visibility;
 extern b8 hf_input_cursor_visibility_last;
+extern u32 hf_input_updates_since_last_switch;
 
 extern v2f hf_input_cursor_pos;
 extern v2f hf_input_cursor_pos_last;
 extern v2f hf_input_cursor_movement;
 extern v2f hf_input_center;
 
+
+void hf_input_start(hf_app* app);
 void hf_input_update(hf_app* app);
+
+void hf_input_key_callback(GLFWwindow* w, int key, int, int action, int);
+void hf_input_mouse_button_callback(GLFWwindow* w, int button, int action, int);
+void hf_input_mouse_position_callback(GLFWwindow* w, double x, double y);
+void hf_input_scroll_movement_callback(GLFWwindow* w, double x, double y);
+void hf_input_window_size_callback(GLFWwindow* w, int width, int height);
+void hf_input_window_focus_callback(GLFWwindow* w, int focused);
+void hf_input_window_position_callback(GLFWwindow* w, int x, int y);
+
+
+
 
 b8 hf_input_get_key(u32 key);
 b8 hf_input_get_key_down(u32 key);
@@ -189,6 +203,7 @@ b8 hf_input_get_cursor_visibility();
 
 void hf_input_destroy();
 
+void hf_input_set_mouse_position(u32 x, u32 y);
 
 
 

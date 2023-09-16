@@ -11,6 +11,7 @@ void hf_window_create(hf_window* w){
     
     glfwMakeContextCurrent(w->window);
     
+    glfwSetWindowPos(w->window, w->x, w->y);
     
     glfwSwapInterval(w->vsync);
     glEnable(GL_DEPTH_TEST);
@@ -22,18 +23,26 @@ void hf_window_create(hf_window* w){
 
 hf_window hf_window_defaults(){
     hf_window w = {};
-    w.x = 0;
-    w.y = 0;
+    w.x = 500;
+    w.y = 300;
     w.w = 600;
     w.h = 480;
     w.title = "HGE Window";
+    w.max_fps = 144;
     return w;
 }
 
 b8 hf_should_window_update(hf_window* w){
     glfwSwapBuffers(w->window);
     glfwPollEvents();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    hf_limit_fps(w->max_fps);
+    hf_time_update();
     
     return !glfwWindowShouldClose(w->window);
+}
+
+void hf_window_set_title(hf_window* window, const char* title){
+    glfwSetWindowTitle(window->window, title);
 }
 
