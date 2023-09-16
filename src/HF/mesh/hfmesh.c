@@ -19,6 +19,12 @@ void hf_mesh_create(hf_mesh* mesh){
         }
     }
     
+    if(mesh->normals){
+        if(hf_array_size(mesh->normals) > 0){
+            hf_push_data_to_VBO(0, 2, 3, mesh->normals, hf_array_size(mesh->normals), GL_STATIC_DRAW);
+        }
+    }
+    
     if(mesh->indices){
         if(hf_array_size(mesh->indices) > 0){
             mesh->ibo = hf_generate_VBO();
@@ -44,6 +50,7 @@ void hf_mesh_destroy(hf_mesh* mesh){
     hf_array_free(mesh->vertices);
     hf_array_free(mesh->texture_coords);
     hf_array_free(mesh->indices);
+    hf_array_free(mesh->normals);
     mesh->created = 0;
 }
 
@@ -304,7 +311,7 @@ hf_mesh hf_mesh_load_from_file(const char* file_path){
     //hf_array_free(indices);
     
     mesh.vertices = vertices;
-    //mesh.normals = hf_array_create(f32);
+    mesh.normals = normals;
     mesh.texture_coords = texture_coords;
     mesh.indices = hf_array_create(u32);
     

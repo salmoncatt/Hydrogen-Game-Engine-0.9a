@@ -78,7 +78,7 @@ void hf_render_mesh(hf_mesh* mesh, hf_shader* shader, hf_transform* transform){
     glBindVertexArray(mesh->vao);
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
-    //glEnableVertexAttribArray(2);
+    glEnableVertexAttribArray(2);
     //glEnableVertexAttribArray(3);
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->ibo);
@@ -108,7 +108,7 @@ void hf_render_mesh(hf_mesh* mesh, hf_shader* shader, hf_transform* transform){
     
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
-    //glDisableVertexAttribArray(2);
+    glDisableVertexAttribArray(2);
     //glDisableVertexAttribArray(3);
     glBindVertexArray(0);
 }
