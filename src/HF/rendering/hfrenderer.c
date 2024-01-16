@@ -42,6 +42,12 @@ void hf_renderer_init(hf_app* app) {
     hf_shader_create(&hf_default_shader, "../res/shaders/vertex.glsl", "../res/shaders/fragment.glsl");
     
     
+    //doesn't render faces that face away and thus can't see
+    glEnable(GL_BACK);
+    glEnable(GL_CULL_FACE);
+    
+    
+    
     hf_log("[HF] initialized HF Renderer\n\n");
 }
 

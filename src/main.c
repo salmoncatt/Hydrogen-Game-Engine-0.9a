@@ -28,8 +28,6 @@ int main(){
     hf_camera_controller cam_controller = { .sensitivity = 0.05f, .movement_speed = 10};
     
     
-    
-    
     while(hf_app_should_update(&app) && !hf_input_get_key_down(HF_KEY_ESCAPE)){
         //update camera controller and renderer camera before rendering
         hf_camera_controller_update(&cam_controller);
