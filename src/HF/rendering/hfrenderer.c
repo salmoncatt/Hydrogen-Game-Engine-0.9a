@@ -46,8 +46,6 @@ void hf_renderer_init(hf_app* app) {
     glEnable(GL_BACK);
     glEnable(GL_CULL_FACE);
     
-    
-    
     hf_log("[HF] initialized HF Renderer\n\n");
 }
 

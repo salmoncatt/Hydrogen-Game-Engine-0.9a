@@ -5,7 +5,7 @@ CFLAGS = -mavx -m64 -Isrc/HF -Iext/include -Iext/include/FreeType -Lext/lib
 #SRC=$(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c)
 
 #only compile only windows main.c version in src folder
-SRC= src/main.c $(wildcard src/*/*.c) $(wildcard src/*/*/*.c)
+SRC= src/main.c $(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c) $(wildcard src/*/*/*/*.c)
 OBJS = $(SRC:.c=.o)
 
 
