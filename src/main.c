@@ -20,12 +20,12 @@ int main(){
     
     hf_chunk chunk = hf_create_chunk();
     
-    /*     
-        hf_mesh mesh = hf_mesh_load_from_file("../res/models/propane tank/tank model final.obj");
-        hf_texture texture = hf_texture_from_file("../res/images/dirt.png");
-        hf_texture_create(&texture);
-        mesh.texture = texture;
-         */
+    
+    hf_mesh mesh = hf_mesh_load_from_file("../res/models/propane tank/tank model final.obj");
+    hf_texture texture = hf_texture_from_file("../res/images/dirt.png");
+    hf_texture_create(&texture);
+    mesh.texture = texture;
+    
     
     
     v3f pos = {0, 0, -5};
@@ -52,7 +52,7 @@ int main(){
         
         
         hf_render_mesh(&chunk.mesh, &hf_default_shader, &transform);
-        //hf_render_mesh(&mesh, &hf_default_shader, &transform);
+        hf_render_mesh(&mesh, &hf_default_shader, &transform);
         
         
         

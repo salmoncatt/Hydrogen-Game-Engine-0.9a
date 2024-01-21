@@ -3,8 +3,11 @@
 #ifndef VOXELDATA_H
 #define VOXELDATA_H
 
+extern f32 hf_whole_block_vertices[30];
+extern f32 hf_whole_block_indices[50];
+extern f32 hf_whole_block_uvs[30];
 
-
+/* 
 extern f32 hf_whole_block_vertices[] = {
     0, 0, 0,
     1, 0, 0,
@@ -31,6 +34,7 @@ extern f32 hf_whole_block_indices[] = {
     23,21,22
         
 };
+ */
 
 
 
